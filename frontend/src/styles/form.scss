@@ -1,0 +1,55 @@
+@font-face {
+  font-family: RobotoRegular;
+  src: url("../static/fonts/robotoRegular.ttf");
+}
+
+@font-face {
+  font-family: RobotoMedium;
+  src: url("../static/fonts/robotoMedium.ttf");
+}
+
+.container-form {
+  font-family: "RobotoRegular", sans-serif;
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 180px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .logo {
+    width: 171px;
+    height: 70px;
+    margin-bottom: 60px;
+  }
+
+  .form {
+    width: 100%;
+
+    .form-title {
+      font-family: "RobotoMedium", sans-serif;
+      font-size: 40px;
+      text-align: center;
+      color: #052c65;
+      line-height: 47px;
+      margin-bottom: 20px;
+    }
+
+    .form-input  {
+       width: 100%;
+    }
+
+    .form-button {
+      width: 100%;
+      font-family: "RobotoMedium", sans-serif;
+    }
+
+    .link {
+      a {
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+      }
+    }
+  }
+
+}

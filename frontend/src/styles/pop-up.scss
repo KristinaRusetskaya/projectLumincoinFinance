@@ -1,0 +1,46 @@
+#content {
+  .pop-up {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    display: none;
+
+    .pop-up-block {
+      border: 1px solid #ced4da;
+      border-radius: 12px;
+      width: 530px;
+      padding: 40px;
+      background-color: white;
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .pop-up-text {
+        font-size: 20px;
+        text-align: center;
+        color: #290661;
+        margin-bottom: 20px;
+      }
+
+      .pop-up-buttons {
+        display: flex;
+        gap: 12px;
+
+        .pop-up-button {
+          font-size: 14px;
+          text-align: center;
+          color: #fff;
+          padding: 11px 16px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@font-face {
+  font-family: RobotoBold;
+  src: url("../static/fonts/robotoBold.ttf");
+}
+
+#content {
+  .transaction {
+    .content-header {
+      .content-title {
+        padding-bottom: 25px;
+      }
+    }
+    .transaction-block {
+      padding: 0 15px;
+
+      .confirmation-buttons {
+        margin-bottom: 40px;
+      }
+
+      .date-buttons {
+        padding-left: 0;
+        margin-bottom: 40px;
+      }
+
+      .container-fluid {
+        .table.table-hover.text-nowrap {
+          border-top: 1px solid #dee2e6;
+          border-bottom: 1px solid #dee2e6;
+
+          & thead th {
+            border-bottom: 1px solid #dee2e6;
+            font-family: RobotoBold, sans-serif;
+            text-align: center;
+          }
+
+          & tbody th {
+            text-align: center;
+            font-weight: 400;
+            font-size: 16px;
+            font-family: RobotoRegular, sans-serif;
+            color: #000;
+
+            &.table-number {
+              font-size: 16px;
+              color: #000;
+            }
+
+            &.table-type {
+              font-family: RobotoRegular, sans-serif;
+              font-weight: 400;
+
+              &.income {
+                color: #198754;
+              }
+
+              &.expenses {
+                color: #dc3545;
+              }
+            }
+
+            & svg:first-child {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+#content {
+  .income-expenses {
+    .content-title {
+      padding-bottom: 25px;
+    }
+
+    .income-expenses-cards {
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: repeat(3, 353px);
+      gap: 20px;
+
+      .income-expenses-card {
+        border: 1px solid #ced4da;
+        border-radius: 12px;
+        padding: 20px;
+
+        &.create {
+          padding-top: 51px;
+          padding-bottom: 51px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .income-expenses-card-header {
+          margin-bottom: 10px;
+        }
+
+        .income-expenses-card-buttons {
+          display: flex;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}
