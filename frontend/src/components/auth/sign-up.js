@@ -5,9 +5,9 @@ export class SignUp {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
 
-        // if (AuthUtils.getAuthInfo(AuthUtils.accessTokenKey)) {
-        //     return this.openNewRoute('/');
-        // }
+        if (AuthUtils.getAuthInfo(AuthUtils.accessTokenKey)) {
+            return this.openNewRoute('/');
+        }
 
         this.fullNameElement = document.getElementById('full-name');
         this.emailElement = document.getElementById('email');

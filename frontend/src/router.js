@@ -13,13 +13,14 @@ import {Transaction} from "./components/content/transaction/transaction.js";
 import {TransactionCreate} from "./components/content/transaction/transaction-create.js";
 import {TransactionEdit} from "./components/content/transaction/transaction-edit.js";
 import {Logout} from "./components/auth/logout.js";
+import {AuthUtils} from "./utils/auth-utils";
 
 export class Router {
     constructor() {
         this.initEvents();
         this.titlePageElement = document.getElementById('title');
         this.contentPageElement = document.getElementById('content');
-        this. routes = [
+        this.routes = [
             {
                 route: '/',
                 title: 'Главная',
@@ -142,6 +143,7 @@ export class Router {
                 }
             }
         ]
+        this.authorizationCheck();
     }
 
     initEvents() {
@@ -157,6 +159,7 @@ export class Router {
     }
 
     async clickHandler(e) {
+        this.authorizationCheck();
         let element = null;
         if (e.target.nodeName === 'A') {
             element = e.target;
@@ -180,11 +183,13 @@ export class Router {
     }
 
     async activateRoute(e, oldRoute = null) {
-        if (oldRoute) {
+        if (oldRoute && this.routes) {
             const currentRoute = this.routes.find(item => item.route === oldRoute);
             if (currentRoute.scripts && currentRoute.scripts.length > 0) {
                 currentRoute.scripts.forEach(script => {
-                    document.querySelector(`script[src='/js/${script}']`).remove();
+                    if (document.querySelector(`script[src='/js/${script}']`)) {
+                        document.querySelector(`script[src='/js/${script}']`).remove();
+                    }
                 })
             }
 
@@ -230,6 +235,12 @@ export class Router {
         } else {
             history.pushState({}, '', '/404')
             await this.activateRoute();
+        }
+    }
+
+    authorizationCheck() {
+        if (!AuthUtils.getAuthInfo(AuthUtils.refreshTokenKey)) {
+            return this.openNewRoute('/login');
         }
     }
 }
