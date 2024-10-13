@@ -6,6 +6,9 @@
         <h3 class="form-title">
             Вход
         </h3>
+        <div class="error invalid-feedback text-center mb-3" id="common-error">
+            Неправильный email или пароль
+        </div>
         <div class="form-input input-group mb-2">
             <div class="input-group-prepend">
                 <span class="input-group-text">
@@ -16,7 +19,8 @@
 </svg>
                 </span>
             </div>
-            <input type="email" class="form-control" placeholder="Электронная почта">
+            <input type="email" class="form-control" placeholder="Электронная почта" id="email">
+            <span id="email-error" class="error invalid-feedback">Введите корректный E-mail</span>
         </div>
         <div class="form-input input-group mb-2">
             <div class="input-group-prepend">
@@ -28,7 +32,8 @@
 </svg>
 </span>
             </div>
-            <input type="password" class="form-control" placeholder="Пароль">
+            <input type="password" class="form-control" placeholder="Пароль" id="password">
+            <span id="password-error" class="error invalid-feedback">Заполните пароль</span>
         </div>
         <div class="form-group row">
             <div class="col-sm-10">
@@ -38,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary form-button mb-2">Вход</button>
+        <button type="submit" class="btn btn-primary form-button mb-2" id="process-button">Войти</button>
         <div class="link">
             Ещё нет аккаунта? <a href="/sign-up">Пройдите регистрацию</a>
         </div>

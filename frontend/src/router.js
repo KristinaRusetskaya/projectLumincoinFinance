@@ -12,6 +12,7 @@ import {ExpensesEdit} from "./components/content/expenses/expenses-edit.js";
 import {Transaction} from "./components/content/transaction/transaction.js";
 import {TransactionCreate} from "./components/content/transaction/transaction-create.js";
 import {TransactionEdit} from "./components/content/transaction/transaction-edit.js";
+import {Logout} from "./components/auth/logout.js";
 
 export class Router {
     constructor() {
@@ -49,8 +50,15 @@ export class Router {
                 title: 'Регистрация',
                 filePathTemplate: '/templates/pages/auth/sign-up.html',
                 load: () => {
-                    new SignUp();
+                    new SignUp(this.openNewRoute.bind(this));
                 }
+            },
+            {
+                route: '/logout',
+                load: () => {
+                    new Logout(this.openNewRoute.bind(this));
+                }
+
             },
             {
                 route: '/income',

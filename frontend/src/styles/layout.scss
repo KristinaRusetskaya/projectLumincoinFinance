@@ -94,31 +94,53 @@
           }
         }
       }
+    }
+    .user-panel {
+      position: static;
+      .image {
+        i.fa {
+          color: grey;
+          font-size: 36px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 6px;
+        }
+      }
 
+      .info {
+        .user {
+          font-family: "RobotoRegular", sans-serif;
+          font-size: 14px;
+          color: #052c65;
+          line-height: 171%;
+        }
+      }
 
+      .logout-block {
+        display: none;
+        position: absolute;
+        top: 20px;
+        left: 28px;
+        background-color: white;
+        border: 1px solid rgb(222, 226, 230);
+        border-radius: 3px;
+        padding: 5px 45px;
+        box-shadow: 0 0 15px -5px grey;
 
-      .user-panel {
-        .image {
-          i.fa {
-            color: grey;
-            font-size: 36px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 6px;
-          }
+        &.show {
+          display: block;
         }
 
-        .info {
-          .user {
-            font-family: "RobotoRegular", sans-serif;
-            font-size: 14px;
-            color: #052c65;
-            line-height: 171%;
-          }
+        #logout {
+          font-family: "RobotoRegular", sans-serif;
+          font-size: 14px;
+          color: #052c65;
+          line-height: 171%;
         }
       }
     }
+
     .balance {
       font-family: "RobotoMedium", sans-serif;
       font-size: 14px;
