@@ -159,9 +159,9 @@ export class Router {
     }
 
     async clickHandler(e) {
-        this.authorizationCheck();
         let element = null;
         if (e.target.nodeName === 'A') {
+            this.authorizationCheck();
             element = e.target;
         } else if (e.target.parentNode.nodeName === 'A') {
             element = e.target.parentNode;
