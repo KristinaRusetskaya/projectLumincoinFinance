@@ -6,6 +6,9 @@
         <h3 class="form-title">
             Создайте аккаунт
         </h3>
+        <div class="error invalid-feedback text-center mb-3" id="common-error">
+            Неправильные данные. Повторите попытку.
+        </div>
         <div class="form-input input-group mb-2">
             <div class="input-group-prepend">
                 <span class="input-group-text">
@@ -14,7 +17,8 @@
 </svg>
                 </span>
             </div>
-            <input type="text" class="form-control" placeholder="ФИО">
+            <input type="text" class="form-control" placeholder="ФИО" id="full-name">
+            <span id="full-name-error" class="error invalid-feedback">Введите ФИО, которое может содержать русские буквы и пробелы. Каждое новое слово - с большой буквы</span>
         </div>
         <div class="form-input input-group mb-2">
             <div class="input-group-prepend">
@@ -26,7 +30,8 @@
 </svg>
                 </span>
             </div>
-            <input type="email" class="form-control" placeholder="Электронная почта">
+            <input type="email" class="form-control" placeholder="Электронная почта" id="email">
+            <span id="email-error" class="error invalid-feedback">Введите корректный E-mail</span>
         </div>
         <div class="form-input input-group mb-2">
             <div class="input-group-prepend">
@@ -38,7 +43,8 @@
 </svg>
 </span>
             </div>
-            <input type="password" class="form-control" placeholder="Пароль">
+            <input type="password" class="form-control" placeholder="Пароль" id="password">
+            <span id="password-error" class="error invalid-feedback">Пароль должен быть не менее 8 символов, содержать как минимум 1 букву в верхнем регистре и как минимум 1 цифру</span>
         </div>
         <div class="form-input input-group mb-4">
             <div class="input-group-prepend">
@@ -50,9 +56,10 @@
 </svg>
 </span>
             </div>
-            <input type="password" class="form-control" placeholder="Подтверждение пароля">
+            <input type="password" class="form-control" placeholder="Подтверждение пароля" id="repeat-password">
+            <span id="repeat-password-error" class="error invalid-feedback">Повторите пароль</span>
         </div>
-        <button type="submit" class="btn btn-primary form-button mb-2">Вход</button>
+        <button type="submit" class="btn btn-primary form-button mb-2" id="process-button">Войти</button>
         <div class="link">
             Уже есть аккаунт? <a href="/login">Войдите в систему</a>
         </div>
