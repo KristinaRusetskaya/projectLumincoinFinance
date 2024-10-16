@@ -13,7 +13,9 @@ import {Transaction} from "./components/content/transaction/transaction.js";
 import {TransactionCreate} from "./components/content/transaction/transaction-create.js";
 import {TransactionEdit} from "./components/content/transaction/transaction-edit.js";
 import {Logout} from "./components/auth/logout.js";
-import {AuthUtils} from "./utils/auth-utils";
+import {AuthUtils} from "./utils/auth-utils.js";
+import {IncomeDelete} from "./components/content/income/income-delete.js";
+import {ViewCategories} from "./components/content/categories/view-categories";
 
 export class Router {
     constructor() {
@@ -67,7 +69,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/content/income/income.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Income();
+                    new ViewCategories(this.openNewRoute.bind(this), 'income');
                 }
             },
             {
@@ -76,7 +78,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/content/income/income-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeCreate();
+                    new IncomeCreate(this.openNewRoute.bind(this));
                 }
             },
             {
@@ -85,7 +87,13 @@ export class Router {
                 filePathTemplate: '/templates/pages/content/income/income-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeEdit();
+                    new IncomeEdit(this.openNewRoute.bind(this));
+                }
+            },
+            {
+                route: '/income-delete',
+                load: () => {
+                    new IncomeDelete(this.openNewRoute.bind(this));
                 }
             },
             {
@@ -94,7 +102,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/content/expenses/expenses.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Expenses();
+                    // new ViewCategories(this.openNewRoute.bind(this), 'expense');
                 }
             },
             {
