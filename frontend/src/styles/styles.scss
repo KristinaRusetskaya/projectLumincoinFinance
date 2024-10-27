@@ -2,8 +2,8 @@
 @import "layout";
 @import "form";
 @import "pages/home";
-@import "pages/income-expenses";
-@import "pages/income-expenses-create-edit";
+@import "pages/income-expense";
+@import "pages/income-expense-create-edit";
 @import "pages/transaction";
 
 #content {
@@ -25,6 +25,43 @@
       font-size: 16px;
       text-align: center;
       color: #000;
+      position: relative;
+
+      .date-section {
+        display: none;
+        top: -80px;
+        position: absolute;
+        flex-direction: column;
+
+        &:not(.date-to) {
+          left: -15px;
+        }
+
+        &.date-to {
+          right: -22px;
+        }
+
+        .date-section-buttons {
+          margin-bottom: 4px;
+          display: flex;
+          gap: 4px;
+
+          & button {
+            width: 58px;
+            border-radius: 4px;
+            background-color: white;
+            border: 1px solid rgb(108, 117, 125);
+          }
+        }
+
+        .date-input {
+          width: 120px;
+          padding: 4px 6px;
+          color: rgb(108, 117, 125);
+          border: 1px solid rgb(108, 117, 125);
+          border-radius: 4px;
+        }
+      }
 
       .interval-date {
         font-size: 16px;
@@ -35,7 +72,7 @@
         color: #6c757d;
         margin-right: 27px;
         margin-left: 17px;
-        cursor: pointer;
+        cursor: not-allowed;
       }
     }
   }

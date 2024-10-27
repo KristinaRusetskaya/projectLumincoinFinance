@@ -3,19 +3,16 @@ import {Login} from "./components/auth/login.js";
 import {SignUp} from "./components/auth/sign-up.js";
 import {Layout} from "./components/layout.js";
 import {FileUtils} from "./utils/file-utils.js";
-import {Income} from "./components/content/income/income.js";
-import {IncomeCreate} from "./components/content/income/income-create.js";
-import {IncomeEdit} from "./components/content/income/income-edit.js";
-import {Expenses} from "./components/content/expenses/expenses.js";
-import {ExpensesCreate} from "./components/content/expenses/expenses-create.js";
-import {ExpensesEdit} from "./components/content/expenses/expenses-edit.js";
 import {Transaction} from "./components/content/transaction/transaction.js";
 import {TransactionCreate} from "./components/content/transaction/transaction-create.js";
 import {TransactionEdit} from "./components/content/transaction/transaction-edit.js";
 import {Logout} from "./components/auth/logout.js";
 import {AuthUtils} from "./utils/auth-utils.js";
-import {IncomeDelete} from "./components/content/income/income-delete.js";
-import {ViewCategories} from "./components/content/categories/view-categories";
+import {ViewCategories} from "./components/content/categories/view-categories.js";
+import {EditCategories} from "./components/content/categories/edit-categories.js";
+import {DeleteCategories} from "./components/content/categories/delete-categories.js";
+import {CreateCategories} from "./components/content/categories/create-categories.js";
+import {TransactionDelete} from "./components/content/transaction/transaction-delete.js";
 
 export class Router {
     constructor() {
@@ -29,7 +26,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/home.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Home();
+                    new Home(this.openNewRoute.bind(this));
                 },
                 scripts: [
                     'Chart.min.js'
@@ -78,7 +75,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/content/income/income-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeCreate(this.openNewRoute.bind(this));
+                    new CreateCategories(this.openNewRoute.bind(this), 'income');
                 }
             },
             {
@@ -87,40 +84,48 @@ export class Router {
                 filePathTemplate: '/templates/pages/content/income/income-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new IncomeEdit(this.openNewRoute.bind(this));
+                    new EditCategories(this.openNewRoute.bind(this), 'income');
                 }
             },
             {
                 route: '/income-delete',
                 load: () => {
-                    new IncomeDelete(this.openNewRoute.bind(this));
+                    new DeleteCategories(this.openNewRoute.bind(this), 'income');
                 }
             },
             {
-                route: '/expenses',
+                route: '/expense',
                 title: 'Расходы',
-                filePathTemplate: '/templates/pages/content/expenses/expenses.html',
+                filePathTemplate: '/templates/pages/content/expenses/expense.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    // new ViewCategories(this.openNewRoute.bind(this), 'expense');
+                    new ViewCategories(this.openNewRoute.bind(this), 'expense');
                 }
             },
             {
-                route: '/expenses-create',
+                route: '/expense-create',
                 title: 'Создание категории расходов',
-                filePathTemplate: '/templates/pages/content/expenses/expenses-create.html',
+                filePathTemplate: '/templates/pages/content/expenses/expense-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpensesCreate();
+                    new CreateCategories(this.openNewRoute.bind(this), 'expense');
+
                 }
             },
             {
-                route: '/expenses-edit',
+                route: '/expense-edit',
                 title: 'Редактирование категории расходов',
-                filePathTemplate: '/templates/pages/content/expenses/expenses-edit.html',
+                filePathTemplate: '/templates/pages/content/expenses/expense-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new ExpensesEdit();
+                    new EditCategories(this.openNewRoute.bind(this), 'expense');
+
+                }
+            },
+            {
+                route: '/expense-delete',
+                load: () => {
+                    new DeleteCategories(this.openNewRoute.bind(this), 'expense');
                 }
             },
             {
@@ -129,7 +134,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/content/transaction/transaction.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new Transaction();
+                    new Transaction(this.openNewRoute.bind(this));
                 }
             },
             {
@@ -138,7 +143,7 @@ export class Router {
                 filePathTemplate: '/templates/pages/content/transaction/transaction-create.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new TransactionCreate();
+                    new TransactionCreate(this.openNewRoute.bind(this));
                 }
             },
             {
@@ -147,7 +152,13 @@ export class Router {
                 filePathTemplate: '/templates/pages/content/transaction/transaction-edit.html',
                 useLayout: '/templates/layout.html',
                 load: () => {
-                    new TransactionEdit();
+                    new TransactionEdit(this.openNewRoute.bind(this));
+                }
+            },
+            {
+                route: '/transaction-delete',
+                load: () => {
+                    new TransactionDelete(this.openNewRoute.bind(this));
                 }
             }
         ]
