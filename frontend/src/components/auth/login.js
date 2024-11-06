@@ -1,13 +1,9 @@
 import {HttpUtils} from "../../utils/http-utils.js";
-import {AuthUtils} from "../../utils/auth-utils";
+import {AuthUtils} from "../../utils/auth-utils.js";
 
 export class Login {
     constructor(openNewRoute) {
         this.openNewRoute = openNewRoute;
-
-        if (AuthUtils.getAuthInfo(AuthUtils.accessTokenKey)) {
-            return this.openNewRoute('/');
-        }
 
         this.emailElement = document.getElementById('email');
         this.passwordElement = document.getElementById('password');
@@ -43,6 +39,10 @@ export class Login {
                 password: this.passwordElement.value,
                 rememberMe: this.rememberMeElement.checked
             })
+
+            if (result.redirect) {
+                return this.openNewRoute(result.redirect);
+            }
 
             if (result.error || !result.response || (result.response && (!result.response.tokens.accessToken || !result.response.tokens.refreshToken || !result.response.user.id || !result.response.user.name || !result.response.user.lastName))) {
                 this.commonErrorElement.style.display = 'block';
