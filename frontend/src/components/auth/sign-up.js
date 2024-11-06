@@ -64,6 +64,10 @@ export class SignUp {
                 passwordRepeat: this.passwordRepeatElement.value
             })
 
+            if (result.redirect) {
+                return this.openNewRoute(result.redirect);
+            }
+
             if (result.error || !result.response || (result.response && (!result.response.user.id || !result.response.user.name || !result.response.user.lastName))) {
                 this.commonErrorElement.style.display = 'block';
                 return;
@@ -74,6 +78,10 @@ export class SignUp {
                 password: this.passwordElement.value,
                 rememberMe: false
             })
+
+            if (login.redirect) {
+                return this.openNewRoute(result.redirect);
+            }
 
             if (login.error || !login.response || (login.response && (!login.response.tokens.accessToken || !login.response.tokens.refreshToken || !login.response.user.id || !login.response.user.name || !login.response.user.lastName))) {
                 this.commonErrorElement.style.display = 'block';

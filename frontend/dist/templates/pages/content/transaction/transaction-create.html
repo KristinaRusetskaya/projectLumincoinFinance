@@ -9,18 +9,24 @@
         </div>
     </div>
     <div class="create-edit-block">
-        <input type="text" class="form-control create-edit-input" placeholder="Тип...">
-        <input type="text" class="form-control create-edit-input" placeholder="Категория...">
-        <input type="text" class="form-control create-edit-input" placeholder="Сумма в $...">
-        <input type="text" class="form-control create-edit-input" placeholder="Дата...">
-        <input type="text" class="form-control create-edit-input" placeholder="Комментарий...">
+        <select name="type" id="type" class="form-control create-edit-input">
+            <option value="income">Доход</option>
+            <option value="expense">Расход</option>
+        </select>
+        <select name="category" id="category" class="form-control create-edit-input">
+        </select>
+        <input type="number" id="amount" class="form-control create-edit-input" placeholder="Сумма в $...">
+        <span id="amount-error" class="error invalid-feedback">Значение не может быть пустым</span>
+        <input type="date" id="date" class="form-control create-edit-input" placeholder="Дата...">
+        <span id="date-error" class="error invalid-feedback">Значение не может быть пустым</span>
+        <input type="text" id="comment" class="form-control create-edit-input" placeholder="Комментарий...">
         <div class="confirmation-buttons">
-            <button class="confirmation-button btn btn-success" type="button" id="delete">
+            <button class="confirmation-button btn btn-success" type="button" id="save">
                 Создать
             </button>
-            <button class="confirmation-button btn btn-danger" type="button" id="no-delete">
+            <a href="/transaction" class="confirmation-button btn btn-danger" type="button" id="no-delete">
                 Отмена
-            </button>
+            </a>
         </div>
     </div>
 </div>

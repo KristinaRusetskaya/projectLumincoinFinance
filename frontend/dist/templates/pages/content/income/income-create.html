@@ -9,14 +9,15 @@
         </div>
     </div>
     <div class="create-edit-block">
-        <input type="text" class="form-control create-edit-input" id="" placeholder="Название...">
+        <input type="text" class="form-control create-edit-input" id="title-input" placeholder="Название...">
+        <span id="title-input-error" class="error invalid-feedback">Значение не может быть пустым</span>
         <div class="confirmation-buttons">
-            <button class="confirmation-button btn btn-success" type="button" id="delete">
+            <button class="confirmation-button btn btn-success" type="button" id="save">
                 Создать
             </button>
-            <button class="confirmation-button btn btn-danger" type="button" id="no-delete">
+            <a href="/income" class="confirmation-button btn btn-danger" type="button" id="cancel">
                 Отмена
-            </button>
+            </a>
         </div>
     </div>
 </div>

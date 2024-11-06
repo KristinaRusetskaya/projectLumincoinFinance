@@ -13,11 +13,16 @@ export class Logout {
     }
 
     async logout() {
-        await HttpUtils.request('/logout', 'POST', false,
+        const result = await HttpUtils.request('/logout', 'POST', false,
             {refreshToken: AuthUtils.getAuthInfo(AuthUtils.refreshTokenKey)});
 
-        AuthUtils.removeAuthInfo();
+        if (result.redirect) {
+            return this.openNewRoute(result.redirect);
+        }
 
-        this.openNewRoute('/login');
+        if (!result.error) {
+            AuthUtils.removeAuthInfo();
+            this.openNewRoute('/login');
+        }
     }
 }
